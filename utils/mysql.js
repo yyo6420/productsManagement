@@ -32,7 +32,7 @@ export async function makeSQLDatabase() {
 
 let singletoneConnection = null;
 
-export async function makeConnection() {
+export async function makeSQLConnection() {
   if (singletoneConnection) return singletoneConnection;
   else {
     singletoneConnection = await mysql.createConnection({
