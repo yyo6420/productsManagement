@@ -26,7 +26,7 @@ export async function makeMongoDatabase() {
   }
 }
 
-export async function getMongoConnection() {
+export async function makeMongoConnection() {
   if (!mongoConnection) {
     if (!mongoClient) {
       mongoClient = new MongoClient(MONGO_URL);
