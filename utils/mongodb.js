@@ -25,3 +25,14 @@ export async function makeMongoDatabase() {
     throw error;
   }
 }
+
+export async function getDatabase() {
+  if (!mongoConnection) {
+    if (!mongoClient) {
+      mongoClient = new MongoClient(MONGO_URL);
+      await mongoClient.connect();
+    }
+    mongoConnection = mongoClient.db(DB_NAME);
+  }
+  return mongoConnection;
+}
